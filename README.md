@@ -83,42 +83,42 @@ The look up operation is also very cheap in bloom filters O(1) time.
 
 In My implementation we have the following functions 
 
-# Initialize a bloom filter with approximate number of elements , false positivity and your desired hashing function . 
+## Initialize a bloom filter with approximate number of elements , false positivity and your desired hashing function . 
 int bloom_filter_init(bloom_filter * bloomFilter, uint64_t approximate_elements, float false_positivity, bloom_hash hash_func); 
 
-# Displays the health of the bloom filter . 
+## Displays the health of the bloom filter . 
 void stats_bloom_filter(bloom_filter * bloomFilter); 
 
-# Destroy the bloom filter and free up memory 
+## Destroy the bloom filter and free up memory 
 int free_bloom_filter(bloom_filter * bloomFilter);  
 
-# Make the bloom filter fresh again after health detoriates 
+## Make the bloom filter fresh again after health detoriates 
 int reset_bloom_filter(bloom_filter * bloomFilter); 
 
-# Add a string in the bloom filter . 
+## Add a string in the bloom filter . 
 int add_string(bloom_filter * bloomFilter, const char * string); 
 
-# Look up in the bloom filter . 
+## Look up in the bloom filter . 
 int is_present_bloom_filter(bloom_filter * bloomFilter, const char * str);  
 
-# Look at the current false positivity of the bloom filter . 
+## Look at the current false positivity of the bloom filter . 
 float get_current_positivity_rate(bloom_filter * bloomFilter);  
 
-# Gets the number of hot bits 
+## Gets the number of hot bits 
 uint64_t count_bits_set(bloom_filter * bloomFilter);
 
-# Estimates the number of elements added. 
+## Estimates the number of elements added. 
 uint64_t estimating_elements(bloom_filter * bloomFilter);
 
 
-# operations on bloom filters 
+## operations on bloom filters 
 
-# find union of two bloom filters with same n and hash function
+## find union of two bloom filters with same n and hash function
 bloom_filter * union_bloom_filters(bloom_filter * source1, bloom_filter * source2);  
 
-# find intersection of two bloom filters with same hash function  
+## find intersection of two bloom filters with same hash function  
 bloom_filter * intersection_bloom_filters(bloom_filter * source1, bloom_filter * source2); 
 
-# Index which calculates how similar are two bloom filters .
+## Index which calculates how similar are two bloom filters .
 long double jaccard_index_bloom_filters(bloom_filter * source1, bloom_filter * source2); 
 
